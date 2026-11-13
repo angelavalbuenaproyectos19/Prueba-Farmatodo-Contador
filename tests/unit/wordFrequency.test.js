@@ -104,3 +104,9 @@ test('procesa un texto grande de forma lineal y correcta', () => {
   assert.equal(characters, 100_000 * 4 + 99_999);
   assert.deepEqual(frequencies, [['gato', 100_000]]);
 });
+
+test('un BOM al inicio del archivo no cuenta como carácter ni altera las palabras', () => {
+  const conBom = analyze('\uFEFFhola mundo hola');
+  assert.deepEqual(conBom, analyze('hola mundo hola'));
+  assert.equal(conBom.characters, 15);
+});

@@ -4,6 +4,7 @@
 //  - Una palabra es un fragmento separado por espacios en blanco que contiene al menos una letra o un número.
 //  - La puntuación al inicio o al final se descarta ("¿Hola?" -> "hola"); la interna se conserva ("bien-estar").
 //  - No se distingue entre mayúsculas y minúsculas.
+//  - Un BOM inicial (U+FEFF, típico de archivos de Windows) no es contenido y se ignora.
 //  - Los caracteres incluyen espacios y excluyen los saltos de línea (\r y \n). Se cuentan puntos de código Unicode.
 //  - Orden del resultado: frecuencia descendente y, en caso de empate, alfabético (según el español).
 
@@ -22,7 +23,7 @@ function toWord(token) {
  * @returns {{words: number, characters: number, frequencies: [string, number][]}}
  */
 function analyze(text) {
-  const normalized = text.normalize('NFC');
+  const normalized = text.replace(/^\uFEFF/, '').normalize('NFC');
   const characters = Array.from(normalized.replace(/[\r\n]/g, '')).length;
 
   const counts = new Map();

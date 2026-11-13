@@ -82,3 +82,15 @@ test('run() informa los errores de lectura distintos de "no existe"', () => {
   assert.equal(r.code, 1);
   assert.match(r.stderr, /permiso denegado/);
 });
+
+test('un directorio en lugar de un archivo da un mensaje claro y código 1', () => {
+  const r = ejecutar(path.join(__dirname, '../fixtures'));
+  assert.equal(r.status, 1);
+  assert.match(r.stderr, /es un directorio, no un archivo/);
+});
+
+test('un archivo con BOM da el mismo resultado que sin BOM', () => {
+  const r = ejecutar(fixture('con-bom.txt'));
+  assert.equal(r.status, 0);
+  assert.equal(r.stdout, '3 words\n15 characters\n\nhola: 2\nmundo: 1\n');
+});

@@ -59,7 +59,7 @@ npm run format:check     # Prettier
 Las pruebas cubren:
 
 - **Unitarias** (`tests/unit/`): el ejemplo exacto del enunciado, el orden descendente y el desempate alfabético (según el español), mayúsculas y minúsculas, puntuación (`¿ ¡ « »`), números, saltos de línea, espacios, texto vacío, letras con tilde descompuestas, emojis y un texto de 100 000 palabras.
-- **Integración** (`tests/integration/`): el CLI ejecutado como programa real con archivos de prueba (`tests/fixtures/`), comparando la salida **exacta** del enunciado, y los casos de error (sin argumentos, demasiados argumentos, archivo inexistente).
+- **Integración** (`tests/integration/`): el CLI ejecutado como programa real con archivos de prueba (`tests/fixtures/`), comparando la salida **exacta** del enunciado, y los casos de error (sin argumentos, demasiados argumentos, archivo inexistente, directorio en lugar de archivo).
 
 ## Reglas y supuestos
 

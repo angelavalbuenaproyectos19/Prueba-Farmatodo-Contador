@@ -19,7 +19,8 @@ function run(args, { readFile = fs.readFileSync } = {}) {
   try {
     text = readFile(args[0], 'utf8');
   } catch (error) {
-    const motivo = error.code === 'ENOENT' ? 'el archivo no existe' : error.message;
+    const motivos = { ENOENT: 'el archivo no existe', EISDIR: 'es un directorio, no un archivo' };
+    const motivo = motivos[error.code] || error.message;
     return { code: 1, stdout: '', stderr: `No se pudo leer "${args[0]}": ${motivo}` };
   }
   return { code: 0, stdout: format(analyze(text)), stderr: '' };
