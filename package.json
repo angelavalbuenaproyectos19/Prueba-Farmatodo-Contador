@@ -1,5 +1,5 @@
 {
-  "name": "contador-frecuencia-palabras",
+  "name": "prueba-farmatodo-contador",
   "version": "1.0.0",
   "description": "Contador de frecuencia de palabras: lee un archivo de texto, cuenta palabras y caracteres e imprime el histograma ordenado",
   "license": "MIT",

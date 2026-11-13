@@ -33,8 +33,8 @@ toda: 1
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/angelavalbuenaproyectos19/contador-frecuencia-palabras.git
-cd contador-frecuencia-palabras
+git clone https://github.com/angelavalbuenaproyectos19/Prueba-Farmatodo-Contador.git
+cd Prueba-Farmatodo-Contador
 
 # 2. Instalar dependencias (solo herramientas de desarrollo: lint, formato)
 npm install
